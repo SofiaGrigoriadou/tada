@@ -12,6 +12,10 @@ let state = JSON.parse(localStorage.getItem("state")) || {
     }
 };
 
+if (state.seashells === undefined || isNaN(state.seashells)) {
+    state.seashells = 0;
+}
+
 /* =========================
    FIBONACCI TABLE
 ========================= */
