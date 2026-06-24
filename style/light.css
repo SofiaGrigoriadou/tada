@@ -132,3 +132,20 @@ body {
 .altar.glow {
   animation: altarGlow 0.8s ease;
 }
+
+.store {
+  margin: 20px;
+  padding: 20px;
+  background: rgba(10,20,30,0.6);
+  border: 1px solid rgba(120,200,255,0.2);
+  border-radius: 12px;
+}
+
+.store-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+}
