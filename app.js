@@ -1,6 +1,7 @@
 let state = JSON.parse(localStorage.getItem("state")) || {
     xp: 0,
     level: 1,
+    seashells: 0,
 
     stats: {
         strength: { xp: 0, level: 1 },
@@ -14,10 +15,7 @@ let state = JSON.parse(localStorage.getItem("state")) || {
 /* =========================
    FIBONACCI TABLE
 ========================= */
-const FIB = [
-    0, 1, 2, 3, 5, 8, 13, 21, 34, 55,
-    89, 144, 233, 377, 610, 987, 1597
-];
+const FIB = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597];
 
 /* =========================
    SAVE SYSTEM
@@ -41,11 +39,11 @@ function characterXPNeeded(level) {
    XP VALUES
 ========================= */
 function skillXP(difficulty) {
-    return difficulty * 10;
+    return difficulty * 1;
 }
 
 function characterXP(difficulty) {
-    return difficulty * 5;
+    return difficulty * 0.5;
 }
 
 /* =========================
@@ -60,6 +58,8 @@ function updateStats() {
 
     el("xp", state.xp);
     el("level", state.level);
+
+    el("shells", state.seashells);
 
     el("str", state.stats.strength.level);
     el("int", state.stats.intelligence.level);
@@ -149,6 +149,9 @@ function addTask() {
 
         /* 🌍 GLOBAL XP */
         state.xp += cXP;
+
+        /* 🐚 SEASHELL REWARD */
+        state.seashells += Math.floor(cXP);
 
         /* 🧠 SKILL XP */
         state.stats[type].xp += sXP;
