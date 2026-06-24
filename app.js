@@ -145,7 +145,7 @@ function addTask() {
     const text = input.value.trim();
     if (!text) return;
 
-     const task = {
+    const task = {
         id: Date.now(),
         text,
         type,
@@ -155,59 +155,39 @@ function addTask() {
     tasks.push(task);
     saveGame();
 
-    renderTask(task);
-
     input.value = "";
+}
+
+function renderTask(task) {
 
     const li = document.createElement("li");
-    li.textContent = `${text} (Difficulty ${difficulty}) `;
+    li.textContent = `${task.text} (Difficulty ${task.difficulty}) `;
 
     const btn = document.createElement("button");
     btn.textContent = "Complete";
 
     btn.onclick = function () {
 
-        const sXP = skillXP(difficulty);
-        const cXP = characterXP(difficulty);
+        const sXP = skillXP(task.difficulty);
+        const cXP = characterXP(task.difficulty);
 
-        /* 🌍 GLOBAL XP */
         state.xp += cXP;
-
-        /* 🐚 SEASHELL REWARD */
         state.seashells += Math.floor(cXP);
+        state.stats[task.type].xp += sXP;
 
-        /* 🧠 SKILL XP */
-        state.stats[type].xp += sXP;
-
-        /* LEVEL UPS FIRST */
-        checkSkillLevelUp(type);
+        checkSkillLevelUp(task.type);
         checkCharacterLevelUp();
 
         tasks = tasks.filter(t => t.id !== task.id);
 
-        /* SAVE STATE */
         saveGame();
-
-        /* UPDATE UI */
         updateStats();
 
-        /* ANIMATE REALM */
-        animateRealm(type);
-
-        /* REMOVE TASK WITH FADE */
-        li.classList.add("offering-complete");
-
-        setTimeout(() => {
-            li.remove();
-        }, 600);
+        li.remove();
     };
 
     li.appendChild(btn);
-
-    const list = document.getElementById("taskList");
-    if (list) list.appendChild(li);
-
-    input.value = "";
+    document.getElementById("taskList").appendChild(li);
 }
 
 function loadTasks() {
