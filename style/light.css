@@ -1,67 +1,74 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(#06121a, #02070c);
-  color: #e6f7ff;
+  font-family: 'Georgia', serif;
+  background: radial-gradient(circle at top, #031018, #00060a);
+  color: #d6f3ff;
 }
 
-/* PANEL STYLE */
-.panel, .realm {
-  background: rgba(10, 25, 40, 0.7);
-  border: 1px solid rgba(100, 200, 255, 0.2);
+/* HEADER */
+.shrine-header {
+  text-align: center;
+  padding: 30px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* VESSEL (CHARACTER) */
+.vessel {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid rgba(120,200,255,0.2);
   border-radius: 12px;
+  background: rgba(10,20,30,0.6);
+}
+
+/* OFFERING PANEL */
+.offering-panel {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(15,25,40,0.6);
+  border: 1px solid rgba(120,200,255,0.15);
+}
+
+/* SHRINE GRID */
+.shrine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+/* ALTARS */
+.altar {
   padding: 15px;
-  margin: 12px;
-  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  background: rgba(8,15,25,0.7);
+  border: 1px solid rgba(120,200,255,0.15);
+  transition: 0.3s;
 }
 
-/* REALM GRID */
-.realm {
-  max-width: 500px;
+.altar:hover {
+  transform: translateY(-3px);
+  border-color: rgba(120,200,255,0.4);
 }
 
-/* XP BAR CONTAINER */
+/* XP BAR */
 .bar {
+  height: 10px;
   width: 100%;
-  height: 12px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   border-radius: 10px;
   overflow: hidden;
-  margin: 5px 0;
+  margin-top: 5px;
 }
 
-/* XP FILL */
 .fill {
   height: 100%;
   width: 0%;
   background: linear-gradient(90deg, #4dd0e1, #7c4dff);
-  transition: width 0.4s ease;
-  border-radius: 10px;
-}
-
-/* REALM COLORS */
-#strengthRealm .fill {
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-}
-
-#intRealm .fill {
-  background: linear-gradient(90deg, #7f7fd5, #86a8e7);
-}
-
-#chaRealm .fill {
-  background: linear-gradient(90deg, #ff6ec4, #7873f5);
-}
-
-#wilRealm .fill {
-  background: linear-gradient(90deg, #2c3e50, #4ca1af);
-}
-
-#ancRealm .fill {
-  background: linear-gradient(90deg, #d7d2cc, #304352);
-}
-
-/* CHARACTER PANEL */
-#characterPanel {
-  text-align: center;
-  border: 2px solid rgba(0,255,255,0.3);
+  transition: width 0.5s ease;
 }
