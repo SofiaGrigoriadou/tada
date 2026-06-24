@@ -155,6 +155,8 @@ function addTask() {
     tasks.push(task);
     saveGame();
 
+    renderTask(task);
+
     input.value = "";
 }
 
@@ -296,7 +298,6 @@ function loadStore() {
     storeItems.forEach(renderStoreItem);
 
     updateStats();
-    loadTasks();
 }
 
 
@@ -304,4 +305,6 @@ function loadStore() {
 /* =========================
    INIT
 ========================= */
+loadTasks();
+loadStore();
 updateStats();
