@@ -44,8 +44,6 @@ function addTask() {
 
     saveGame();
 
-    li.remove();
-
   };
 
   li.appendChild(button);
