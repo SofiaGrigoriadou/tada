@@ -14,40 +14,58 @@ let state = JSON.parse(localStorage.getItem("state")) || {
 /* =========================
    FIBONACCI TABLE
 ========================= */
-const FIB = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+const FIB = [
+    0, 1, 2, 3, 5, 8, 13, 21, 34, 55,
+    89, 144, 233, 377, 610, 987, 1597
+];
 
 /* =========================
-   SAVE
+   SAVE SYSTEM
 ========================= */
 function saveGame() {
     localStorage.setItem("state", JSON.stringify(state));
 }
 
 /* =========================
-   XP HELPERS
+   XP REQUIREMENTS
 ========================= */
 function skillXPNeeded(level) {
-    return FIB[level + 2] || 9999;
+    return FIB[level + 2] || 999999;
 }
 
 function characterXPNeeded(level) {
-    return (FIB[level + 2] || 9999) * 10;
+    return (FIB[level + 2] || 999999) * 10;
 }
 
 /* =========================
-   UPDATE UI (STATS + BARS)
+   XP VALUES
+========================= */
+function skillXP(difficulty) {
+    return difficulty * 10;
+}
+
+function characterXP(difficulty) {
+    return difficulty * 5;
+}
+
+/* =========================
+   UPDATE UI
 ========================= */
 function updateStats() {
 
-    document.getElementById("xp").textContent = state.xp;
-    document.getElementById("level").textContent = state.level;
+    const el = (id, val) => {
+        const node = document.getElementById(id);
+        if (node) node.textContent = val;
+    };
 
-    // levels
-    document.getElementById("str").textContent = state.stats.strength.level;
-    document.getElementById("int").textContent = state.stats.intelligence.level;
-    document.getElementById("cha").textContent = state.stats.charisma.level;
-    document.getElementById("wil").textContent = state.stats.willpower.level;
-    document.getElementById("anc").textContent = state.stats.anchoring.level;
+    el("xp", state.xp);
+    el("level", state.level);
+
+    el("str", state.stats.strength.level);
+    el("int", state.stats.intelligence.level);
+    el("cha", state.stats.charisma.level);
+    el("wil", state.stats.willpower.level);
+    el("anc", state.stats.anchoring.level);
 
     updateBars();
 }
@@ -63,22 +81,25 @@ function updateBars() {
     updateBar("wilBar", state.stats.willpower);
     updateBar("ancBar", state.stats.anchoring);
 
-    // character bar
-    let charPercent =
-        (state.xp / characterXPNeeded(state.level)) * 100;
+    const charBar = document.getElementById("charBar");
 
-    document.getElementById("charBar").style.width =
-        Math.min(charPercent, 100) + "%";
+    if (charBar) {
+        let percent =
+            (state.xp / characterXPNeeded(state.level)) * 100;
+
+        charBar.style.width = Math.min(percent, 100) + "%";
+    }
 }
 
-/* generic bar updater */
 function updateBar(id, stat) {
+
+    const bar = document.getElementById(id);
+    if (!bar) return;
 
     let needed = skillXPNeeded(stat.level);
     let percent = (stat.xp / needed) * 100;
 
-    document.getElementById(id).style.width =
-        Math.min(percent, 100) + "%";
+    bar.style.width = Math.min(percent, 100) + "%";
 }
 
 /* =========================
@@ -104,17 +125,6 @@ function checkCharacterLevelUp() {
 }
 
 /* =========================
-   XP SYSTEM (BALANCED)
-========================= */
-function skillXP(difficulty) {
-    return difficulty * 1;
-}
-
-function characterXP(difficulty) {
-    return difficulty * 0.5;
-}
-
-/* =========================
    TASK SYSTEM
 ========================= */
 function addTask() {
@@ -127,36 +137,78 @@ function addTask() {
     if (!text) return;
 
     const li = document.createElement("li");
-    li.textContent = `${text} (Diff ${difficulty}) `;
+    li.textContent = `${text} (Difficulty ${difficulty}) `;
 
     const btn = document.createElement("button");
     btn.textContent = "Complete";
 
     btn.onclick = function () {
 
-        let sXP = skillXP(difficulty);
-        let cXP = characterXP(difficulty);
+        const sXP = skillXP(difficulty);
+        const cXP = characterXP(difficulty);
 
-        // global XP
+        /* 🌍 GLOBAL XP */
         state.xp += cXP;
 
-        // skill XP
+        /* 🧠 SKILL XP */
         state.stats[type].xp += sXP;
 
-        // level checks
+        /* LEVEL UPS FIRST */
         checkSkillLevelUp(type);
         checkCharacterLevelUp();
 
-        updateStats();
+        /* SAVE STATE */
         saveGame();
 
-        li.remove();
+        /* UPDATE UI */
+        updateStats();
+
+        /* ANIMATE REALM */
+        animateRealm(type);
+
+        /* REMOVE TASK WITH FADE */
+        li.classList.add("offering-complete");
+
+        setTimeout(() => {
+            li.remove();
+        }, 600);
     };
 
     li.appendChild(btn);
-    document.getElementById("taskList").appendChild(li);
+
+    const list = document.getElementById("taskList");
+    if (list) list.appendChild(li);
 
     input.value = "";
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+function animateRealm(skill) {
+
+    const map = {
+        strength: "strBar",
+        intelligence: "intBar",
+        charisma: "chaBar",
+        willpower: "wilBar",
+        anchoring: "ancBar"
+    };
+
+    const barId = map[skill];
+    const bar = document.getElementById(barId);
+
+    if (!bar) return;
+
+    const altar = bar.closest(".altar");
+
+    bar.classList.add("pulse");
+    if (altar) altar.classList.add("glow");
+
+    setTimeout(() => {
+        bar.classList.remove("pulse");
+        if (altar) altar.classList.remove("glow");
+    }, 800);
 }
 
 /* =========================
