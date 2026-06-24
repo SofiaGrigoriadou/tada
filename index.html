@@ -1,51 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaDa!</title>
-</head>
-<link rel="stylesheet"
+  <link rel="stylesheet"
       href="/style/light.css">
+</head>
+
 <body>
 
 <h1>TaDa</h1>
 
+<div class="panel">
+  <h2>Character</h2>
+  <p>Level: <span id="level">1</span></p>
+  <p>XP: <span id="xp">0</span></p>
+  <p>Strength: <span id="str">1</span></p>
+</div>
+
 <p>Level: <span id="level">1</span></p>
 <p>XP: <span id="xp">0</span></p>
 
-<h2>Stats</h2>
+<div class="panel">
+  <h2>Add Task</h2>
+  <input id="taskInput" type="text" placeholder="Enter task">
+  <button onclick="addTask()"> Add Task </button>
+</div>
 
-<p>STR:
-<span id="str">1</span></p>
-
-<p>INT:
-<span id="int">1</span></p>
-
-<p>CHA:
-<span id="cha">1</span></p>
-
-<input id="taskInput" placeholder="New task">
-
-<button onclick="addTask()">
-  Add Task
-</button>
-
-<select id="taskType">
-
-<option value="strength">
-Workout
-</option>
-
-<option value="intelligence">
-Study
-</option>
-
-<option value="charisma">
-Social
-</option>
-
-</select>
-
-<ul id="taskList"></ul>
+<div class="panel">
+  <h2>Tasks</h2>
+  <ul id="taskList"></ul>
+</div>
 
 <script src="app.js"></script>
 
