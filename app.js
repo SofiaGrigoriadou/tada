@@ -16,6 +16,9 @@ if (state.seashells === undefined || isNaN(state.seashells)) {
     state.seashells = 0;
 }
 
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let storeItems = JSON.parse(localStorage.getItem("storeItems")) || [];
+
 /* =========================
    FIBONACCI TABLE
 ========================= */
@@ -26,6 +29,8 @@ const FIB = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597
 ========================= */
 function saveGame() {
     localStorage.setItem("state", JSON.stringify(state));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("storeItems", JSON.stringify(storeItems));
 }
 
 /* =========================
@@ -139,6 +144,20 @@ function addTask() {
 
     const text = input.value.trim();
     if (!text) return;
+
+     const task = {
+        id: Date.now(),
+        text,
+        type,
+        difficulty
+    };
+
+    tasks.push(task);
+    saveGame();
+
+    renderTask(task);
+
+    input.value = "";
 
     const li = document.createElement("li");
     li.textContent = `${text} (Difficulty ${difficulty}) `;
