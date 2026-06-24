@@ -17,5 +17,18 @@ let player = {
   .getElementById("cha")
   .textContent =
   player.charisma;
+
+  const type =
+ document.getElementById("taskType")
+ .value;
+
+if(type === "strength")
+  player.strength++;
+
+if(type === "intelligence")
+  player.intelligence++;
+
+if(type === "charisma")
+  player.charisma++;
 };
 
