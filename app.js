@@ -183,6 +183,8 @@ function addTask() {
         checkSkillLevelUp(type);
         checkCharacterLevelUp();
 
+        tasks = tasks.filter(t => t.id !== task.id);
+
         /* SAVE STATE */
         saveGame();
 
@@ -206,6 +208,13 @@ function addTask() {
     if (list) list.appendChild(li);
 
     input.value = "";
+}
+
+function loadTasks() {
+    tasks.forEach(renderTask);
+
+    updateStats();
+    loadTasks();
 }
 
 /* =========================
@@ -255,6 +264,9 @@ function addStoreItem() {
         cost
     };
 
+    storeItems.push(item);
+    saveGame();
+
     renderStoreItem(item);
 
     document.getElementById("itemName").value = "";
@@ -291,7 +303,7 @@ function renderStoreItem(item) {
             alert("🌊 You received: " + item.name);
 
         } else {
-            alert("Not enough seashells.");
+            alert("Not enough seashells :(");
         }
     };
 
@@ -300,6 +312,16 @@ function renderStoreItem(item) {
 
     container.appendChild(div);
 }
+
+function loadStore() {
+    storeItems.forEach(renderStoreItem);
+
+    updateStats();
+    loadTasks();
+    loadStore();
+}
+
+
 
 /* =========================
    INIT
