@@ -41,7 +41,7 @@ function addTask() {
     
     const li = document.createElement("li");
     
-    li.textContent = taskText + " ";
+    li.textContent = text + " ";
     
     const btn = document.createElement("button");
     btn.textContent = "Complete";
