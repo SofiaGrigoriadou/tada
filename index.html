@@ -1,97 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaDa!</title>
-
-  <link rel="stylesheet" href="style/light.css">
-</head>
-
 <body>
 
-<h1>TaDa</h1>
+<div class="shrine-header">
+  <h1>🧜‍♀️ Shrine of Becoming</h1>
+  <p class="subtitle">Where mortal intent becomes divine flow</p>
+</div>
 
-<!-- 🌊 CHARACTER -->
-<div class="panel">
-  <h2>Character</h2>
+<!-- 🌊 CHARACTER VESSEL -->
+<div class="vessel">
 
-  <p>Level: <span id="level">1</span></p>
+  <h2>🌊 Your Vessel</h2>
+
+  <p>Ascension Level: <span id="level">1</span></p>
 
   <div class="bar">
     <div id="charBar" class="fill"></div>
   </div>
 
-  <p>XP: <span id="xp">0</span></p>
+  <p>Essence: <span id="xp">0</span></p>
+
 </div>
 
-<hr>
+<!-- 🧭 OFFERING CREATION -->
+<div class="offering-panel">
 
-<!-- 🧭 TASK INPUT -->
-<input id="taskInput" placeholder="Task">
+  <h2>🕯️ Make an Offering</h2>
 
-<!-- 🧠 TASK TYPE -->
-<select id="taskType">
+  <input id="taskInput" placeholder="Describe your offering...">
 
-  <option value="strength">Workout (Strength)</option>
-  <option value="intelligence">Study (Intelligence)</option>
-  <option value="charisma">Social (Charisma)</option>
-  <option value="willpower">Discipline (Willpower)</option>
-  <option value="anchoring">Chores (Anchoring)</option>
+  <select id="taskType">
+    <option value="strength">💪 Tide of Flesh</option>
+    <option value="intelligence">🧠 Lumen Archive</option>
+    <option value="charisma">🐚 Siren Bond</option>
+    <option value="willpower">🌙 Moon Discipline</option>
+    <option value="anchoring">🪸 Shorebound Order</option>
+  </select>
 
-</select>
+  <select id="taskDifficulty">
+    <option value="1">I - Whisper (Very Easy)</option>
+    <option value="2">II - Ripple (Easy)</option>
+    <option value="3">III - Current (Medium)</option>
+    <option value="4">IV - Tide Surge (Hard)</option>
+    <option value="5">V - Abyssal Flow (Very Hard)</option>
+  </select>
 
-<!-- 🎚 DIFFICULTY -->
-<select id="taskDifficulty">
+  <button onclick="addTask()">Offer to the Shrine</button>
 
-  <option value="1">1 - Very Easy</option>
-  <option value="2">2 - Easy</option>
-  <option value="3">3 - Medium</option>
-  <option value="4">4 - Hard</option>
-  <option value="5">5 - Very Hard</option>
-
-</select>
-
-<button onclick="addTask()">Add Task</button>
-
-<ul id="taskList"></ul>
-
-<hr>
-
-<!-- 🌊 REALMS -->
-
-<div class="realm">
-  <h3>💪 Strength</h3>
-  <p>Level: <span id="str">1</span></p>
-  <div class="bar"><div id="strBar" class="fill"></div></div>
 </div>
 
-<div class="realm">
-  <h3>🧠 Intelligence</h3>
-  <p>Level: <span id="int">1</span></p>
-  <div class="bar"><div id="intBar" class="fill"></div></div>
+<!-- 🌊 ALTARS -->
+
+<div class="shrine-grid">
+
+  <div class="altar" id="strengthRealm">
+    <h3>💪 Tide of Flesh</h3>
+    <p>Level: <span id="str">1</span></p>
+    <div class="bar"><div id="strBar" class="fill"></div></div>
+  </div>
+
+  <div class="altar" id="intRealm">
+    <h3>🧠 Lumen Archive</h3>
+    <p>Level: <span id="int">1</span></p>
+    <div class="bar"><div id="intBar" class="fill"></div></div>
+  </div>
+
+  <div class="altar" id="chaRealm">
+    <h3>🐚 Siren Bond</h3>
+    <p>Level: <span id="cha">1</span></p>
+    <div class="bar"><div id="chaBar" class="fill"></div></div>
+  </div>
+
+  <div class="altar" id="wilRealm">
+    <h3>🌙 Moon Discipline</h3>
+    <p>Level: <span id="wil">1</span></p>
+    <div class="bar"><div id="wilBar" class="fill"></div></div>
+  </div>
+
+  <div class="altar" id="ancRealm">
+    <h3>🪸 Shorebound Order</h3>
+    <p>Level: <span id="anc">1</span></p>
+    <div class="bar"><div id="ancBar" class="fill"></div></div>
+  </div>
+
 </div>
 
-<div class="realm">
-  <h3>🐚 Charisma</h3>
-  <p>Level: <span id="cha">1</span></p>
-  <div class="bar"><div id="chaBar" class="fill"></div></div>
-</div>
-
-<div class="realm">
-  <h3>🌙 Willpower</h3>
-  <p>Level: <span id="wil">1</span></p>
-  <div class="bar"><div id="wilBar" class="fill"></div></div>
-</div>
-
-<div class="realm">
-  <h3>🪸 Anchoring</h3>
-  <p>Level: <span id="anc">1</span></p>
-  <div class="bar"><div id="ancBar" class="fill"></div></div>
-</div>
+<!-- hidden task list (kept for logic only, not UI anymore) -->
+<ul id="taskList" style="display:none;"></ul>
 
 <script src="app.js"></script>
 
 </body>
-</html>
