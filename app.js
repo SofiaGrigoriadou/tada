@@ -8,7 +8,9 @@ let player =
 JSON.parse(
 localStorage.getItem("player")
 ) || {
-strength: 1
+strength: 1,
+intelligence: 1,
+charisma: 1
 };
 
 function saveGame() {
