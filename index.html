@@ -10,26 +10,28 @@
 
 <h1>TaDa</h1>
 
-<div class="panel">
-  <h2>Character</h2>
+<div>
   <p>Level: <span id="level">1</span></p>
   <p>XP: <span id="xp">0</span></p>
-  <p>Strength: <span id="str">1</span></p>
+
+  <p>STR: <span id="str">1</span></p>
+  <p>INT: <span id="int">1</span></p>
+  <p>CHA: <span id="cha">1</span></p>
 </div>
 
-<p>Level: <span id="level">1</span></p>
-<p>XP: <span id="xp">0</span></p>
+<hr>
 
-<div class="panel">
-  <h2>Add Task</h2>
-  <input id="taskInput" type="text" placeholder="Enter task">
-  <button onclick="addTask()"> Add Task </button>
-</div>
+<input id="taskInput" placeholder="Task">
 
-<div class="panel">
-  <h2>Tasks</h2>
-  <ul id="taskList"></ul>
-</div>
+<select id="taskType">
+  <option value="strength">Workout</option>
+  <option value="intelligence">Study</option>
+  <option value="charisma">Social</option>
+</select>
+
+<button onclick="addTask()">Add Task</button>
+
+<ul id="taskList"></ul>
 
 <script src="app.js"></script>
 
