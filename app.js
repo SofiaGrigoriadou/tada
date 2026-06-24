@@ -1,5 +1,19 @@
-let xp = 0;
-let level = 1;
+let xp =
+ Number(localStorage.getItem("xp")) || 0;
+
+let level =
+ Number(localStorage.getItem("level")) || 1;
+
+function saveGame() {
+
+  localStorage.setItem("xp", xp);
+
+  localStorage.setItem(
+    "level",
+    level
+  );
+
+}
 
 function addTask() {
 
@@ -27,6 +41,8 @@ function addTask() {
     checkLevelUp();
 
     updateStats();
+
+    saveGame();
 
     li.remove();
 
