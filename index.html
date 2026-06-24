@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaDa!</title>
+
   <link rel="stylesheet" href="style/light.css">
 </head>
 
@@ -10,28 +13,92 @@
 
 <h1>TaDa</h1>
 
-<div>
-  <p>Level: <span id="level">1</span></p>
-  <p>XP: <span id="xp">0</span></p>
+<!-- 🌊 CHARACTER PANEL -->
+<div id="characterPanel" class="panel">
+  <p>Character Level: <span id="level">1</span></p>
 
-  <p>STR: <span id="str">1</span></p>
-  <p>INT: <span id="int">1</span></p>
-  <p>CHA: <span id="cha">1</span></p>
+  <div class="bar">
+    <div id="charBar" class="fill"></div>
+  </div>
+
+  <p>XP: <span id="xp">0</span></p>
 </div>
 
 <hr>
 
+<!-- 🧭 TASK CREATION -->
 <input id="taskInput" placeholder="Task">
 
 <select id="taskType">
   <option value="strength">Workout</option>
   <option value="intelligence">Study</option>
   <option value="charisma">Social</option>
+  <option value="willpower">Willpower</option>
+  <option value="anchoring">Anchoring</option>
 </select>
 
 <button onclick="addTask()">Add Task</button>
 
 <ul id="taskList"></ul>
+
+<hr>
+
+<!-- 🌊 5 REALMS UI -->
+
+<div class="realm" id="strengthRealm">
+  <h3>💪 Tide of Flesh</h3>
+  <p>STR Level: <span id="strLevel">1</span></p>
+
+  <div class="bar">
+    <div id="strBar" class="fill"></div>
+  </div>
+
+  <p>XP: <span id="strXP">0</span></p>
+</div>
+
+<div class="realm" id="intRealm">
+  <h3>🧠 Lumen Archive</h3>
+  <p>INT Level: <span id="intLevel">1</span></p>
+
+  <div class="bar">
+    <div id="intBar" class="fill"></div>
+  </div>
+
+  <p>XP: <span id="intXP">0</span></p>
+</div>
+
+<div class="realm" id="chaRealm">
+  <h3>🐚 Siren Bond</h3>
+  <p>CHA Level: <span id="chaLevel">1</span></p>
+
+  <div class="bar">
+    <div id="chaBar" class="fill"></div>
+  </div>
+
+  <p>XP: <span id="chaXP">0</span></p>
+</div>
+
+<div class="realm" id="wilRealm">
+  <h3>🌙 Moon Discipline</h3>
+  <p>WIL Level: <span id="wilLevel">1</span></p>
+
+  <div class="bar">
+    <div id="wilBar" class="fill"></div>
+  </div>
+
+  <p>XP: <span id="wilXP">0</span></p>
+</div>
+
+<div class="realm" id="ancRealm">
+  <h3>🪸 Shorebound Order</h3>
+  <p>ANC Level: <span id="ancLevel">1</span></p>
+
+  <div class="bar">
+    <div id="ancBar" class="fill"></div>
+  </div>
+
+  <p>XP: <span id="ancXP">0</span></p>
+</div>
 
 <script src="app.js"></script>
 
