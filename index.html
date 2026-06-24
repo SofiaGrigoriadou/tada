@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="style/light.css">
 </div>
 
+<p>🐚 Seashells: <span id="shells">0</span></p>
+
 <!-- 🌊 CHARACTER VESSEL -->
 <div class="vessel">
 
@@ -83,6 +85,18 @@
     <p>Level: <span id="anc">1</span></p>
     <div class="bar"><div id="ancBar" class="fill"></div></div>
   </div>
+
+</div>
+
+<div class="store">
+
+  <h2>🛍️ Shrine Store</h2>
+
+  <input id="itemName" placeholder="Item name">
+  <input id="itemCost" type="number" placeholder="Cost (seashells)">
+  <button onclick="addStoreItem()">Add to Store</button>
+
+  <div id="storeList"></div>
 
 </div>
 
