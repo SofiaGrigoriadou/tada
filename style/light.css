@@ -133,7 +133,11 @@ body {
   animation: altarGlow 0.8s ease;
 }
 
-.store {
+/* =========================
+   STORE
+========================= */
+
+.store-tab {
   margin: 20px;
   padding: 20px;
   background: rgba(10,20,30,0.6);
@@ -141,11 +145,58 @@ body {
   border-radius: 12px;
 }
 
+.store {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.store input {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: #d6f3ff;
+}
+
+.store button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #4dd0e1;
+  cursor: pointer;
+}
+
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .store-item {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
-  margin-top: 8px;
+  padding: 10px;
+  border-radius: 10px;
   background: rgba(255,255,255,0.05);
-  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.store-item:hover {
+  transform: translateX(4px);
+}
+
+.store-item button {
+  background: #7c4dff;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.store-item.purchased {
+  opacity: 0.4;
+  transform: scale(0.98);
 }
