@@ -214,7 +214,6 @@ function loadTasks() {
     tasks.forEach(renderTask);
 
     updateStats();
-    loadTasks();
 }
 
 /* =========================
@@ -318,7 +317,6 @@ function loadStore() {
 
     updateStats();
     loadTasks();
-    loadStore();
 }
 
 
