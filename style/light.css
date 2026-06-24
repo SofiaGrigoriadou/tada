@@ -1,26 +1,67 @@
 body {
-
-  background: #1d1f21;
-  color: white;
-
-  font-family: Arial;
-
-  max-width: 800px;
-
-  margin: auto;
-
-  padding: 20px;
-
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(#06121a, #02070c);
+  color: #e6f7ff;
 }
 
-button {
-
-  margin-left: 10px;
-
+/* PANEL STYLE */
+.panel, .realm {
+  background: rgba(10, 25, 40, 0.7);
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 12px;
+  backdrop-filter: blur(6px);
 }
 
-h1 {
+/* REALM GRID */
+.realm {
+  max-width: 500px;
+}
 
-  color: gold;
+/* XP BAR CONTAINER */
+.bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 5px 0;
+}
 
+/* XP FILL */
+.fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4dd0e1, #7c4dff);
+  transition: width 0.4s ease;
+  border-radius: 10px;
+}
+
+/* REALM COLORS */
+#strengthRealm .fill {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+#intRealm .fill {
+  background: linear-gradient(90deg, #7f7fd5, #86a8e7);
+}
+
+#chaRealm .fill {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+}
+
+#wilRealm .fill {
+  background: linear-gradient(90deg, #2c3e50, #4ca1af);
+}
+
+#ancRealm .fill {
+  background: linear-gradient(90deg, #d7d2cc, #304352);
+}
+
+/* CHARACTER PANEL */
+#characterPanel {
+  text-align: center;
+  border: 2px solid rgba(0,255,255,0.3);
 }
