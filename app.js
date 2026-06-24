@@ -214,6 +214,70 @@ function animateRealm(skill) {
     }, 800);
 }
 
+
+/* =========================
+   COIN SYSTEM
+========================= */
+
+function addStoreItem() {
+
+    const name = document.getElementById("itemName").value.trim();
+    const cost = Number(document.getElementById("itemCost").value);
+
+    if (!name || !cost) return;
+
+    const item = {
+        id: Date.now(),
+        name,
+        cost
+    };
+
+    renderStoreItem(item);
+
+    document.getElementById("itemName").value = "";
+    document.getElementById("itemCost").value = "";
+}
+
+function renderStoreItem(item) {
+
+    const container = document.getElementById("storeList");
+
+    const div = document.createElement("div");
+    div.className = "store-item";
+
+    const label = document.createElement("span");
+    label.textContent = `${item.name} — 🐚 ${item.cost}`;
+
+    const btn = document.createElement("button");
+    btn.textContent = "Purchase";
+
+    btn.onclick = function () {
+
+        if (state.seashells >= item.cost) {
+
+            state.seashells -= item.cost;
+            saveGame();
+            updateStats();
+
+            div.classList.add("purchased");
+
+            setTimeout(() => {
+                div.remove();
+            }, 400);
+
+            alert("🌊 You received: " + item.name);
+
+        } else {
+            alert("Not enough seashells.");
+        }
+    };
+
+    div.appendChild(label);
+    div.appendChild(btn);
+
+    container.appendChild(div);
+}
+
 /* =========================
    INIT
 ========================= */
