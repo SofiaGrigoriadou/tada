@@ -1,8 +1,8 @@
 <body>
 
 <div class="shrine-header">
-  <h1>🧜‍♀️ Shrine of Becoming</h1>
-  <p class="subtitle">Where mortal intent becomes divine flow</p>
+  <h1>shrine of will</h1>
+  <p class="subtitle">mortal intent is divine</p>
   <link rel="stylesheet" href="style/light.css">
 </div>
 
@@ -31,19 +31,19 @@
   <input id="taskInput" placeholder="Describe your offering...">
 
   <select id="taskType">
-    <option value="strength">💪 Tide of Flesh</option>
-    <option value="intelligence">🧠 Lumen Archive</option>
-    <option value="charisma">🐚 Siren Bond</option>
-    <option value="willpower">🌙 Moon Discipline</option>
-    <option value="anchoring">🪸 Shorebound Order</option>
+    <option value="strength">💪 Stenght</option>
+    <option value="intelligence">🧠 Intelligence</option>
+    <option value="charisma">🐚 Charisma</option>
+    <option value="willpower">🌙 Willpower</option>
+    <option value="anchoring">🪸 Anchoring</option>
   </select>
 
   <select id="taskDifficulty">
     <option value="1">I - Whisper (Very Easy)</option>
     <option value="2">II - Ripple (Easy)</option>
     <option value="3">III - Current (Medium)</option>
-    <option value="4">IV - Tide Surge (Hard)</option>
-    <option value="5">V - Abyssal Flow (Very Hard)</option>
+    <option value="4">IV - Tide (Hard)</option>
+    <option value="5">V - Charybdis (Very Hard)</option>
   </select>
 
   <button onclick="addTask()">Offer to the Shrine</button>
@@ -57,31 +57,36 @@
 <div class="shrine-grid">
 
   <div class="altar" id="strengthRealm">
-    <h3>💪 Tide of Flesh</h3>
+    <h3>💪 Strenght</h3>
+    <p>Realm of the flesh</p>
     <p>Level: <span id="str">1</span></p>
     <div class="bar"><div id="strBar" class="fill"></div></div>
   </div>
 
   <div class="altar" id="intRealm">
-    <h3>🧠 Lumen Archive</h3>
+    <h3>🧠 Intelligence</h3>
+    <p>Realm of the mind</p>
     <p>Level: <span id="int">1</span></p>
     <div class="bar"><div id="intBar" class="fill"></div></div>
   </div>
 
   <div class="altar" id="chaRealm">
-    <h3>🐚 Siren Bond</h3>
+    <h3>🐚 Charisma</h3>
+    <p>Realm of the presence</p>
     <p>Level: <span id="cha">1</span></p>
     <div class="bar"><div id="chaBar" class="fill"></div></div>
   </div>
 
   <div class="altar" id="wilRealm">
-    <h3>🌙 Moon Discipline</h3>
+    <h3>🌙 Willpower</h3>
+    <p>Realm of discipline</p>
     <p>Level: <span id="wil">1</span></p>
     <div class="bar"><div id="wilBar" class="fill"></div></div>
   </div>
 
   <div class="altar" id="ancRealm">
-    <h3>🪸 Shorebound Order</h3>
+    <h3>🪸 Anchoring</h3>
+    <p>Realm of order</p>
     <p>Level: <span id="anc">1</span></p>
     <div class="bar"><div id="ancBar" class="fill"></div></div>
   </div>
