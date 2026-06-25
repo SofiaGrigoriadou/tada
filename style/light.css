@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 10;
   font-family: 'Georgia', serif;
   background: radial-gradient(circle at top, #FEFFFA, #FFF7E5);
   color: #5D9BF9;
@@ -8,7 +8,7 @@ body {
 /* HEADER */
 .shrine-header {
   text-align: center;
-  padding: 30px;
+  padding: 10px;
 }
 
 .subtitle {
@@ -18,8 +18,8 @@ body {
 
 /* VESSEL (CHARACTER) */
 .vessel {
-  margin: 20px;
-  padding: 20px;
+  margin: 0;
+  padding: 10px;
   border: 1px solid #5D9BF9;
   border-radius: 12px;
   background: #FFF7E5;
@@ -27,8 +27,8 @@ body {
 
 /* OFFERING PANEL */
 .offering-panel {
-  margin: 20px;
-  padding: 20px;
+  margin: 0;
+  padding: 10px;
   border-radius: 12px;
   background: #FFF7E5;
   border: 1px solid #5D9BF9;
@@ -39,13 +39,13 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* ALTARS */
 .altar {
-  padding: 15px;
-  border-radius: 14px;
+  padding: 10px;
+  border-radius: 12px;
   background: #FFF7E5;
   border: 1px solid #5D9BF9;
   transition: 0.3s;
@@ -69,7 +69,7 @@ body {
 .fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #4dd0e1, #7c4dff);
+  background: linear-gradient(90deg, #5D9BF9, #A35D84);
   transition: width 0.5s ease;
 }
 
@@ -138,8 +138,8 @@ body {
 ========================= */
 
 .store-tab {
-  margin: 20px;
-  padding: 20px;
+  margin: 0;
+  padding: 10px;
   background: #FFF7E5;
   border: 1px solid #5D9BF9;
   border-radius: 12px;
@@ -153,24 +153,24 @@ body {
 }
 
 .store input {
-  padding: 8px;
+  padding: 5px;
   border-radius: 8px;
   border: none;
   background: #FFF7E5;
-  color: #d6f3ff;
+  color: #A35D84;
 }
 
 .store button {
-  padding: 8px 12px;
+  padding: 5px 10px;
   border-radius: 8px;
   border: none;
-  background: #4dd0e1;
+  background: #A35D84;
   cursor: pointer;
 }
 
 .store-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -188,7 +188,7 @@ body {
 }
 
 .store-item button {
-  background: #7c4dff;
+  background: #A35D84;
   border: none;
   color: white;
   padding: 5px 10px;
