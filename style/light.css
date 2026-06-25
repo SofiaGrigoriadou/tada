@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: radial-gradient(circle at top, #031018, #00060a);
-  color: #d6f3ff;
+  background: radial-gradient(circle at top, #FEFFFA, #FFF7E5);
+  color: #5D9BF9;
 }
 
 /* HEADER */
@@ -20,9 +20,9 @@ body {
 .vessel {
   margin: 20px;
   padding: 20px;
-  border: 1px solid rgba(120,200,255,0.2);
+  border: 1px solid #5D9BF9;
   border-radius: 12px;
-  background: rgba(10,20,30,0.6);
+  background: #FFF7E5;
 }
 
 /* OFFERING PANEL */
@@ -30,8 +30,8 @@ body {
   margin: 20px;
   padding: 20px;
   border-radius: 12px;
-  background: rgba(15,25,40,0.6);
-  border: 1px solid rgba(120,200,255,0.15);
+  background: #FFF7E5;
+  border: 1px solid #5D9BF9;
 }
 
 /* SHRINE GRID */
@@ -46,8 +46,8 @@ body {
 .altar {
   padding: 15px;
   border-radius: 14px;
-  background: rgba(8,15,25,0.7);
-  border: 1px solid rgba(120,200,255,0.15);
+  background: #FFF7E5;
+  border: 1px solid #5D9BF9;
   transition: 0.3s;
 }
 
@@ -140,8 +140,8 @@ body {
 .store-tab {
   margin: 20px;
   padding: 20px;
-  background: rgba(10,20,30,0.6);
-  border: 1px solid rgba(120,200,255,0.2);
+  background: #FFF7E5;
+  border: 1px solid #5D9BF9;
   border-radius: 12px;
 }
 
@@ -156,7 +156,7 @@ body {
   padding: 8px;
   border-radius: 8px;
   border: none;
-  background: rgba(255,255,255,0.08);
+  background: #FFF7E5;
   color: #d6f3ff;
 }
 
